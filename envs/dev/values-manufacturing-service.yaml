@@ -1,8 +1,8 @@
 replicaCount: 1
 fullnameOverride: manufacturing-service
 image:
-  repository: 516209541629.dkr.ecr.us-east-1.amazonaws.com/manufacturing-service
-  tag: sha-0184ded
+  repository: 651706754162.dkr.ecr.us-east-1.amazonaws.com/manufacturing-service
+  tag: sha-b0f17f2
   pullPolicy: Always
 service:
   type: ClusterIP
@@ -44,7 +44,9 @@ readinessProbe:
   successThreshold: 1
 configmap:
   SPRING_PROFILES_ACTIVE: dev
-  DB_HOST: pharma-dev-postgres.cyrywaguk6v4.us-east-1.rds.amazonaws.com
+  DB_HOST: pharma-dev-postgres.czy0862aczqk.us-east-1.rds.amazonaws.com
+  DB_PORT: "5432"
+  DB_NAME: pharmadb
   LOG_LEVEL: DEBUG
   SERVER_PORT: "8085"
   MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "health,info,metrics,prometheus"
