@@ -14,6 +14,7 @@ ingress:
   annotations:
     alb.ingress.kubernetes.io/group.name: pharma-dev
     alb.ingress.kubernetes.io/group.order: "10"
+    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health/readiness
   host: ""
   path: /api
   pathType: Prefix
