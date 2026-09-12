@@ -1,7 +1,7 @@
 replicaCount: 1
 fullnameOverride: notification-service
 image:
-  repository: 516209541629.dkr.ecr.us-east-1.amazonaws.com/notification-service
+  repository: 651706754162.dkr.ecr.us-east-1.amazonaws.com/notification-service
   tag: sha-71c1e3f
   pullPolicy: Always
 service:
@@ -48,11 +48,7 @@ configmap:
   LOG_LEVEL: debug
   SMTP_HOST: "smtp.example.com"
   SMTP_PORT: "587"
-  EMAIL_FROM: "noreply-dev@example.com"
-  DB_HOST: pharma-dev-postgres.cyrywaguk6v4.us-east-1.rds.amazonaws.com
-envFrom:
-  - secretRef:
-      name: db-credentials
+  SMTP_FROM: "noreply-dev@example.com"
 serviceAccount:
   create: true
   annotations: {}

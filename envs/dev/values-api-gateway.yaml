@@ -1,7 +1,7 @@
 replicaCount: 1
 fullnameOverride: api-gateway
 image:
-  repository: 516209541629.dkr.ecr.us-east-1.amazonaws.com/api-gateway
+  repository: 651706754162.dkr.ecr.us-east-1.amazonaws.com/api-gateway
   tag: sha-b0f17f2
   pullPolicy: Always
 service:
@@ -52,14 +52,12 @@ configmap:
   # These match the fullnameOverride values of each service
   AUTH_SERVICE_URL: "http://auth-service:8081"
   DRUG_CATALOG_URL: "http://drug-catalog-service:8082"
+  INVENTORY_SERVICE_URL: "http://inventory-service:8083"
+  SUPPLIER_SERVICE_URL: "http://supplier-service:8084"
+  MANUFACTURING_SERVICE_URL: "http://manufacturing-service:8085"
   NOTIFICATION_URL: "http://notification-service:3000"
   QC_SERVICE_URL: "http://qc-service:8086"
   MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "health,info,metrics,prometheus"
-envFrom:
-  - secretRef:
-      name: db-credentials
-  - secretRef:
-      name: jwt-secret
 volumeMounts:
   - name: tmp
     mountPath: /tmp
@@ -68,6 +66,5 @@ volumes:
     emptyDir: {}
 serviceAccount:
   create: true
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::516209541629:role/pharma-dev-eks-role
+  annotations: {}
   name: api-gateway

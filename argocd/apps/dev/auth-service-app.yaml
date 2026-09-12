@@ -13,9 +13,8 @@ spec:
   project: pharma
 
   source:
-    # Replace 'DPP-2026' with your GitHub username after forking zen-gitops
-    repoURL: https://github.com/DPP-2026/zen-gitops.git
-    targetRevision: HEAD
+    repoURL: https://github.com/roland-zen-devops/zen-gitops.git
+    targetRevision: main
     path: helm-charts
     helm:
       valueFiles:
@@ -28,7 +27,7 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      #selfHeal: true
+      selfHeal: true
       allowEmpty: false
     syncOptions:
       - CreateNamespace=true
